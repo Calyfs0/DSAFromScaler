@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <div style="padding-top: 50%" class="form-group">
+      <div>
+        <input
+          type="text"
+          class="form-control"
+          [class.is-invalid]="searchFailed"
+          [(ngModel)]="model"
+          [ngbTypeahead]="search"
+          placeholder="Enter Query"
+        />
+      </div>
+      <div class="invalid-feedback" *ngIf="searchFailed">
+        Sorry, suggestions could not be loaded.
+      </div>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>
