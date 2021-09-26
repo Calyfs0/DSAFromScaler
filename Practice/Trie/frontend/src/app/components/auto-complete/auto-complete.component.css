@@ -1,0 +1,14 @@
+.w-100p {
+  width: 100%;
+}
+.h-100p {
+  height: calc(100vh - 64px);
+}
+
+.search-container {
+  justify-content: center;
+}
+
+.nodiplay {
+  display: none;
+}
