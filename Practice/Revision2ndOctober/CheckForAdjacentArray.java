@@ -1,3 +1,5 @@
+public class CheckForAdjacentArray{
+
 public static int CheckForAdjacentArray()
 	{
 		int[] A = {3, 2, 1, 4, 5};
@@ -31,3 +33,5 @@ public static int CheckForAdjacentArray()
 		
 		return 1;
 	}
+
+}
