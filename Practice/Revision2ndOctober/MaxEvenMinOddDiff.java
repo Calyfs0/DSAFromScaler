@@ -1,21 +1,21 @@
-public static int DiffBetweenEvenAndOdd() {
-    int[] A = {0, 2, 9};
-    int even_max = Integer.MIN_VALUE;
-    int odd_min = Integer.MAX_VALUE;
-    
-    for(int i=0;i<A.length;i++) {
-        if(A[i] % 2 == 0) {
-            if(A[i] > even_max) {
-                even_max = A[i];
+class MaxEvenMinOddDiff {
+    public static int DiffBetweenEvenAndOdd() {
+        int[] A = {0, 2, 9};
+        int even_max = Integer.MIN_VALUE;
+        int odd_min = Integer.MAX_VALUE;
+
+        for (int i : A) {
+            if (i % 2 == 0) {
+                if (i > even_max) {
+                    even_max = i;
+                }
+            } else if (i % 2 != 0) {
+                if (i < odd_min) {
+                    odd_min = i;
+                }
             }
         }
-        
-        else if(A[i] % 2 != 0) {
-            if(A[i] < odd_min) {
-                odd_min = A[i];
-            }
-        }
+
+        return even_max - odd_min;
     }
-    
-    return even_max - odd_min;
 }
