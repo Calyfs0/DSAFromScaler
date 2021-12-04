@@ -1,19 +1,28 @@
-A = [1, 2, 5, -7, 2, 5 ]
-let curr_sum = A[0]
-let max_sum = A[0]
-output = [A[0]]
-for(let i=1;i<A.length;i++){
-    if(A[i] > 0){
-        curr_sum += A[i]
-       
-        max_sum = Math.max(curr_sum, max_sum)
-        if(curr_sum <= max_sum) output.push(A[i])
-        if(curr_sum < 0) curr_sum = 0
-    }
-    else{
-        curr_sum = 0
-        output = []
+A = 5
+B = 
+[
+  [1, 2, 10],
+  [2, 3, 20],
+  [2, 5, 25]
+]
+let input = []
+let output = []
+
+for(let i=0;i<A;i++){
+    input.push(0)
+    output.push(0)
+}
+
+for(let j=0;j<B.length;j++){
+    input[B[0]] = B[2]
+    if(B[1]+1 < B.length){
+        input[B[1]+1] = -B[2]
     }
 }
 
-console.log(output)
+
+for(let k = 1;k < input.length;k++){
+    output[k] = input[k] + output[k-1]
+}
+
+console.log(output) 
