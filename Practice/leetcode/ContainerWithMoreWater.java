@@ -1,5 +1,3 @@
-package leetcode;
-
 public class ContainerWithMoreWater {
     public int maxArea(int[] height) {
 
