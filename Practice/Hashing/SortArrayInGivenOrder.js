@@ -2,6 +2,9 @@ A = [1, 2, 3, 4, 5];
 B = [5, 4, 2];
 
 function SortArrayInGivenOrder(A, B) {
+  A.sort(function (a, b) {
+    return a - b;
+  });
   let hm = new Map();
 
   for (let i = 0; i < A.length; i++) {
