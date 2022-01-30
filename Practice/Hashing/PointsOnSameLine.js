@@ -1,40 +1,29 @@
 function PointOnSameLine(A, B) {
-  if (A.length == 1) return 1;
-  const hm = new Map();
-  let max_count = 0;
-  let index = 0;
-
+  let maxcount = 0;
   for (let i = 0; i < A.length; i++) {
-    let slope = null;
-    let count = 1;
+    let coordinateX1 = A[i];
+    let coordinateY1 = B[i];
+    let count = 0;
+    let hm = new Map();
     for (let j = 0; j < B.length; j++) {
       if (i == j) continue;
       if (A[i] == A[j] && B[i] == B[j]) {
         count++;
         continue;
       }
-      let val1 = A[j] - A[i];
-      let val2 = B[j] - B[i];
-      let curr_slope = null;
-      if (val1 == val2) curr_slope = 1;
-      else if (val2 == 0) curr_slope = val1;
-      else {
-        let gcd = GCD(Math.abs(val1), Math.abs(val2));
-        val1 = val1 / gcd;
-        val2 = val2 / gcd;
-        curr_slope = val1 / val2;
-      }
-      //hm.set(curr_slope, hm.has(curr_slope) ? hm.get(curr_slope) + 1 : 1);
-      if (slope == null) slope = curr_slope;
-      else if (curr_slope == slope) count++;
+      let coordinateX2 = A[j];
+      let coordinateY2 = B[j];
+
+      let slope = (coordinateY2 - coordinateY1) / (coordinateX2 - coordinateX1);
+      if (hm.has(slope)) {
+        hm.set(slope, hm.get(slope) + 1);
+        count = Math.max(count, hm.get(slope));
+      } else hm.set(slope, 1);
     }
-    if (count > max_count) {
-      index = i;
-    }
-    max_count = Math.max(count, max_count);
+    maxcount = Math.max(maxcount, count);
   }
-  //console.log(hm);
-  return max_count;
+  if (maxcount < 2) return 2;
+  else return maxcount + 1;
 }
 
 function GCD(A, B) {
