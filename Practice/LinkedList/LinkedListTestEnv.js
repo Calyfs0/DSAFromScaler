@@ -8,6 +8,7 @@ class Node {
   constructor() {
     this.data = null;
     this.next = null;
+    this.random = null;
   }
 }
 /**
@@ -15,6 +16,7 @@ class Node {
  * head refers to head of the node
  * insert_node takes a int value and creates a new node, appends it to the next available position
  */
+
 let head = null;
 class LinkedList {
   constructor() {
@@ -33,6 +35,7 @@ class LinkedList {
         currNode = currNode.next;
       }
       currNode.next = newNode;
+      newNode.random = head;
     }
   }
 }
@@ -40,7 +43,8 @@ class LinkedList {
 /**
  * Filling the LinkedList
  */
-let A = [1, 2, 3, 4, 5];
+let A = [1, 2, 3];
+
 for (let i = 0; i < A.length; i++) {
   let ll = new LinkedList();
   ll.insert_node(A[i]);
@@ -49,7 +53,7 @@ for (let i = 0; i < A.length; i++) {
 /**
  * Printing the LinkedList
  */
-function printLinkedList() {
+function printLinkedList(head) {
   let cNode = head;
   let output = "";
   while (cNode != null) {
@@ -65,36 +69,46 @@ function printLinkedList() {
   output += "null";
   console.log(output);
 }
-printLinkedList();
+printLinkedList(head);
 /**
  * Testing a function based on the above created input
  */
 
-TestFunction(head);
-printLinkedList();
+printLinkedList(TestFunction(head));
 function TestFunction(head) {
-  let head2 = head;
   let curr = head;
-  let curr2 = head2;
-
   while (curr != null) {
-    curr2.next = curr.next;
-    curr.next = curr2;
+    let newNode = new Node();
+    newNode.data = curr.data;
+    newNode.next = curr.next;
+    curr.next = newNode;
+    curr = newNode.next;
+  }
+  curr = head;
+  head2 = curr.next;
+  curr2 = head2;
+
+  while (curr != null && curr2 != null) {
+    if (curr.random != null) {
+      curr2.random = curr.random.next;
+    }
     curr = curr2.next;
-    curr2 = curr2.next;
+    if (curr != null) {
+      curr2 = curr.next;
+    }
   }
-  printLinkedList();
-}
 
-function reverseLinkedList(A) {
-  let prev = null;
-  let curr = A;
+  curr = head;
+  curr2 = head2;
 
-  while (curr != null) {
-    let nextNode = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = nextNode;
+  while (curr != null && curr2 != null) {
+    curr.next = curr2.next;
+    curr = curr.next;
+    if (curr != null && curr.next != null) {
+      curr2.next = curr.next;
+      curr2 = curr2.next;
+    }
   }
-  return prev;
+
+  return head2;
 }
