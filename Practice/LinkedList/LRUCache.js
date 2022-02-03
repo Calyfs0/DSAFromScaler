@@ -14,7 +14,7 @@ module.exports = {
     let size = 0;
     let head = null;
     let tail = null;
-    let hm = new Map();
+    let hm = new Map(); //key,node
 
     return {
       // get function returns an integer
