@@ -42,6 +42,6 @@ function ContactFinder(A, B) {
 }
 
 A = [0, 0, 1, 1];
-B = ["hack", "hacker", "hac", "hak"];
+B = ["hack", "hacker", "hac", "ha"];
 
 console.log(ContactFinder(A, B));
