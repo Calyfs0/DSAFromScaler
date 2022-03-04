@@ -1,33 +1,25 @@
-function ConnectRopes(A) {
+const MaximumSUmArrayAfterBNegations = (A, B) => {
+  let sum = 0;
+
+  //Create Min Heap
   BuildMinHeap(A);
-  let output = 0;
-  while (A.length > 1) {
-    let firstMin = ExtractMin(A);
+  while (B > 0) {
+    //Extract Min
+    let min = ExtractMin(A);
+    //Heapify
+    Heapify(A, 0);
+    insertValue(A, min * -1);
 
-    let secondMin = ExtractMin(A);
-    let val = firstMin + secondMin;
-    output += val;
-    insertValue(A, val);
+    B--;
   }
-  return output;
-}
-
-function BuildMinHeap(A) {
-  let startIndex = Math.floor(A.length / 2) - 1;
-  while (startIndex >= 0) {
-    Heapify(A, startIndex);
-    startIndex--;
+  for (let i = 0; i < A.length; i++) {
+    sum += A[i];
   }
-}
 
-function ExtractMin(A) {
-  swap(A, 0, A.length - 1);
-  let min = A.pop();
-  Heapify(A, 0);
-  return min;
-}
+  return sum;
+};
 
-function insertValue(A, val) {
+const insertValue = (A, val) => {
   A.push(val);
   let index = A.length - 1;
   let parentIndex = Math.floor((index - 1) / 2);
@@ -38,7 +30,19 @@ function insertValue(A, val) {
     index = parentIndex;
     parentIndex = Math.floor((index - 1) / 2);
   }
-}
+};
+const BuildMinHeap = (A) => {
+  let startIndex = Math.floor(A.length / 2) - 1;
+  while (startIndex >= 0) {
+    Heapify(A, startIndex);
+    startIndex--;
+  }
+};
+
+const ExtractMin = (A) => {
+  swap(A, 0, A.length - 1);
+  return A.pop();
+};
 
 function Heapify(A, index) {
   while (2 * index + 1 < A.length) {
@@ -62,11 +66,12 @@ function Heapify(A, index) {
   }
 }
 
-function swap(A, i, j) {
-  let temp = A[i];
+const swap = (A, i, j) => {
+  const temp = A[i];
   A[i] = A[j];
   A[j] = temp;
-}
+};
 
-let A = [6, 19, 9, 14, 17, 16, 7, 2, 14, 4, 3];
-console.log(ConnectRopes(A));
+A = [24, -68, -29, -9, 84];
+B = 4;
+console.log(MaximumSUmArrayAfterBNegations(A, B));
