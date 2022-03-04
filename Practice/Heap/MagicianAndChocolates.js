@@ -7,6 +7,7 @@ function MagicianAndChocolates(A, B) {
   while (A > 0) {
     A--;
     let max = ExtractMax(B);
+    Heapify(B, 0);
     //3. add it to the answer
     output = ((output % mod) + (max % mod)) % mod;
 
@@ -37,15 +38,13 @@ function InsertElement(B, num) {
   B.push(num);
   let currIndex = B.length - 1;
   let parentIndex = Math.floor((currIndex - 1) / 2);
-  Heapify(B, 0);
-  //   while (currIndex > 0) {
-  //     if (B[currIndex] > B[parentIndex]) {
-  //       swap(B, currIndex, parentIndex);
-  //     }
-
-  //     currIndex = parentIndex;
-  //     parentIndex = Math.floor((currIndex - 1) / 2);
-  //   }
+  while (currIndex > 0) {
+    if (B[parentIndex] < B[currIndex]) {
+      swap(B, currIndex, parentIndex);
+    }
+    currIndex = parentIndex;
+    parentIndex = Math.floor((currIndex - 1) / 2);
+  }
 }
 
 function Heapify(B, index) {
@@ -78,10 +77,7 @@ function swap(B, index1, index2) {
   B[index2] = temp;
 }
 
-A = 11;
-B = [22, 74];
-
-// A = 5;
-// B = [2, 4, 6, 8, 10];
+A = 5;
+B = [2, 4, 6, 8, 10];
 
 console.log(MagicianAndChocolates(A, B));
