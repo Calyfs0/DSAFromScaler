@@ -2,7 +2,7 @@ function RegularExpressionMatch(A, B) {
   let fSL = A.length;
   let sSL = B.length;
 
-  let stringArray = Array.from(Array(fSL), () => Array(sSL).fill(-1));
+  let stringHM = new Map();
 
   return CheckForMatch(fSL - 1, sSL - 1) ? 1 : 0;
   function CheckForMatch(fSL, sSL) {
@@ -14,15 +14,17 @@ function RegularExpressionMatch(A, B) {
       return true;
     } else if (sSL < 0) return false;
 
-    if (stringArray[fSL][sSL] != -1) return stringArray[fSL][sSL];
+    if (stringHM.has(fSL + "" + sSL)) return stringHM.get(fSL + "" + sSL);
     if (A[fSL] == B[sSL] || B[sSL] == "?") {
-      stringArray[fSL][sSL] = CheckForMatch(fSL - 1, sSL - 1);
+      stringHM.set(fSL + "" + sSL, CheckForMatch(fSL - 1, sSL - 1));
     } else if (B[sSL] == "*") {
-      stringArray[fSL][sSL] =
-        CheckForMatch(fSL, sSL - 1) || CheckForMatch(fSL - 1, sSL);
-    } else stringArray[fSL][sSL] = false;
+      stringHM.set(
+        fSL + "" + sSL,
+        CheckForMatch(fSL, sSL - 1) || CheckForMatch(fSL - 1, sSL)
+      );
+    } else stringHM.set(fSL + "" + sSL, false);
 
-    return stringArray[fSL][sSL];
+    return stringHM.get(fSL + "" + sSL);
   }
 }
 
