@@ -1,0 +1,1 @@
+select * from employeesalary where dept = 'HR' AND salary < 500 OR salary > 1000;
