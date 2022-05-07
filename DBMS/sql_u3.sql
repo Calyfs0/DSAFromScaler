@@ -1,0 +1,1 @@
+Select Name from q3_employees where PanId = (Select PanId from q3_salaries order by Salary desc LIMIT 1); 
