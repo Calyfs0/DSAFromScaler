@@ -85,6 +85,29 @@ public class Main {
         // }
 
         // --------------------------------------------------
+
+        /// Noble Integer
+
+        // ArrayList<Integer> A = new ArrayList<>(List.of(3, 2, 1, 3));
+        // NobleInteger ni = new NobleInteger(A);
+        // System.out.println(ni.FindNumberOfNobleIntegers());
+
+        // --------------------------------------------------
+
+        /// Reverse the array
+
+        // ArrayList<Integer> A = new ArrayList<>(List.of(3, 2, 1, 3));
+        // ReverseTheArray RTA = new ReverseTheArray(A);
+        // ArrayList<Integer> output = RTA.Reverse();
+        // System.out.println(output.toString());
+
+        // --------------------------------------------------
+
+        /// SubArray with least average
+        ArrayList<Integer> A = new ArrayList<>(List.of(3, 7, 5, 20, -10, 0, 12));
+        int B = 3;
+        SubArrayWithLeastAverage subArrayWithLeastAverage = new SubArrayWithLeastAverage(A, B);
+        System.out.println(subArrayWithLeastAverage.GetFirstIndexOofLeastAverageSubArray());
     }
 
 }
