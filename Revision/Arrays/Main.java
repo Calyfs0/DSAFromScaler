@@ -104,10 +104,30 @@ public class Main {
         // --------------------------------------------------
 
         /// SubArray with least average
-        ArrayList<Integer> A = new ArrayList<>(List.of(3, 7, 5, 20, -10, 0, 12));
-        int B = 3;
-        SubArrayWithLeastAverage subArrayWithLeastAverage = new SubArrayWithLeastAverage(A, B);
-        System.out.println(subArrayWithLeastAverage.GetFirstIndexOofLeastAverageSubArray());
+        // ArrayList<Integer> A = new ArrayList<>(List.of(3, 7, 5, 20, -10, 0, 12));
+        // int B = 3;
+        // SubArrayWithLeastAverage subArrayWithLeastAverage = new
+        /// SubArrayWithLeastAverage(A, B);
+        // System.out.println(subArrayWithLeastAverage.GetFirstIndexOofLeastAverageSubArray());
+
+        // --------------------------------------------------
+
+        /// MAX MIN
+
+        // ArrayList<Integer> A = new ArrayList<>(
+        // List.of(34, 7, 96, 37, 12, 13, 22, 86, 17, 78, 95, 61, 42, 1, 42, 58, 98, 78,
+        // 92, 85, 10, 97));
+        // int B = 22;
+        // MAXMIN mm = new MAXMIN();
+        // System.out.println(mm.solve(A, B));
+
+        // --------------------------------------------------
+
+        /// Max min with minimum comparison
+
+        MaxMinWithMinimumComparison mmwm = new MaxMinWithMinimumComparison();
+        System.out.println(mmwm.solve());
+
     }
 
 }
