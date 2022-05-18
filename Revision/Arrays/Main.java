@@ -131,9 +131,18 @@ public class Main {
         // ---------------------------------------------------
 
         /// Array with consecutive elements
-        ArrayList<Integer> A = new ArrayList<Integer>(List.of(3, 2, 1, 4, 5));
-        ArrayWithConsecutiveElement awce = new ArrayWithConsecutiveElement(A);
-        System.out.println(awce.Check());
+        // ArrayList<Integer> A = new ArrayList<Integer>(List.of(3, 2, 1, 4, 5));
+        // ArrayWithConsecutiveElement awce = new ArrayWithConsecutiveElement(A);
+        // System.out.println(awce.Check());
+
+        // ---------------------------------------------------
+
+        /// Allocate books
+        ArrayList<Integer> A = new ArrayList<Integer>(List.of(12, 34, 67, 90));
+        int B = 2;
+
+        AllocateBooks ab = new AllocateBooks(A, B);
+        System.out.println(ab.books());
 
     }
 
