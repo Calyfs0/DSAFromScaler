@@ -125,8 +125,15 @@ public class Main {
 
         /// Max min with minimum comparison
 
-        MaxMinWithMinimumComparison mmwm = new MaxMinWithMinimumComparison();
-        System.out.println(mmwm.solve());
+        // MaxMinWithMinimumComparison mmwm = new MaxMinWithMinimumComparison();
+        // System.out.println(mmwm.solve());
+
+        // ---------------------------------------------------
+
+        /// Array with consecutive elements
+        ArrayList<Integer> A = new ArrayList<Integer>(List.of(3, 2, 1, 4, 5));
+        ArrayWithConsecutiveElement awce = new ArrayWithConsecutiveElement(A);
+        System.out.println(awce.Check());
 
     }
 
