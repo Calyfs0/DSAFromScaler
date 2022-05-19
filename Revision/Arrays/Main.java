@@ -142,7 +142,7 @@ public class Main {
         int B = 2;
 
         AllocateBooks ab = new AllocateBooks(A, B);
-        System.out.println(ab.books());
+        System.out.println(ab.CheckMaxMin());
 
     }
 
