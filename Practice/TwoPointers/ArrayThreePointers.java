@@ -15,16 +15,15 @@ public class ArrayThreePointers {
     public static int solve(final List<Integer> A, final List<Integer> B, final List<Integer> C) {
         int ans = Integer.MAX_VALUE;
         int i = 0, j = 0, k = 0;
-        int max = 0;
 
-        while (true) {
+        while (i < A.size() && j < B.size() && k < C.size()) {
             int firstValue = A.get(i);
             int secondValue = B.get(j);
             int thirdValue = C.get(k);
             int val1 = Math.abs(firstValue - secondValue);
             int val2 = Math.abs(secondValue - thirdValue);
             int val3 = Math.abs(thirdValue - firstValue);
-            max = Math.max(val1, val2);
+            int max = Math.max(val1, val2);
             max = Math.max(max, val3);
             ans = Math.min(max, ans);
 
@@ -37,8 +36,7 @@ public class ArrayThreePointers {
                 } else {
                     j++;
                 }
-                if (j == B.size() || i == A.size())
-                    return ans;
+
             }
 
             // Condition 2: when val2 is max
@@ -49,8 +47,7 @@ public class ArrayThreePointers {
                 } else {
                     k++;
                 }
-                if (j == B.size() || k == C.size())
-                    return ans;
+
                 // Condition 3: when val3 is max
             } else if (thirdValue < firstValue) {
                 k++;
@@ -59,9 +56,9 @@ public class ArrayThreePointers {
                 i++;
 
             }
-            if (k == C.size() || i == A.size())
-                return ans;
 
         }
+
+        return ans;
     }
 }
