@@ -1,24 +1,30 @@
 public class SmallestXOR {
+    public static void main(String[] args) {
+        SmallestXOR smallestXOR = new SmallestXOR();
+        int A = 4;
+        int B = 6;
+        System.out.println(smallestXOR.solve(A, B));
+    }
     public int solve(int A, int B) {
-        int xor = 0;
+        int ans = 0;
 
-        for (int i = 30; i >= 0; i--) {
-            if ((A & (1 << i)) > 0 && B > 0) {
-                xor += 1 << i;
+        for(int i=31;i>=0;i--){
+            if((A & (1<<i)) > 0){
+                ans |= 1<<i;
                 B--;
             }
+            if(B == 0) return ans;
         }
 
-        if (B > 0) {
-            for (int i = 0; i < 31; i++) {
-                if ((xor & (1 << i)) == 0 && B > 0) {
-                    xor = xor | 1 << i;
-                    B--;
-                }
+        for(int i = 0;i<31;i++){
+            if((A & (1<<i)) == 0){
+                ans |= 1<<i;
+                B--;
             }
+            if(B == 0) return ans;
         }
 
-        return xor;
-
+        return ans;
     }
 }
+
