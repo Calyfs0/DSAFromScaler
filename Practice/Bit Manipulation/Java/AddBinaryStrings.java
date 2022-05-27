@@ -6,7 +6,7 @@ public class AddBinaryStrings {
         System.out.println(abs.addBinary(A, B));
     }
     public String addBinary(String A, String B) {
-        String final_output = "";
+        String finalOutput = "";
 
         int i = A.length() -1;
         int j = B.length() - 1;
@@ -28,11 +28,11 @@ public class AddBinaryStrings {
 
             ans += carry;
             carry = ans/2;
-            final_output = Integer.toString(ans) + final_output;
+            finalOutput = Integer.toString(ans) + finalOutput;
             
         }
 
-        return final_output;
+        return finalOutput;
     }
 
 }
