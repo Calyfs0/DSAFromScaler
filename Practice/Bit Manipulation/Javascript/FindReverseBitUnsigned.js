@@ -1,10 +1,7 @@
 //Reverse the bits of an 32 bit unsigned integer A.
 
 
-A = 3    
 
-//Calling the function and printing it
-console.log(ReverseBits(A))
 
 
 ///Reversing bit for an unsigned integer A
@@ -57,8 +54,13 @@ function ReverseBits(A){
 function ReverseBit(num){
     var revnum = 0;
   for( var i = 0; i < 32; i++ ) {
-    if( num&1<<i)
+    if( num&(1<<i))
       revnum |= 1<<(31-i);
   }
   return revnum>>>0;
 }
+
+A = 3    
+
+//Calling the function and printing it
+console.log(ReverseBit(A))

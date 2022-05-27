@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MaxAndMinMagic {
     public int[] solve(int[] A) {
         Arrays.sort(A);

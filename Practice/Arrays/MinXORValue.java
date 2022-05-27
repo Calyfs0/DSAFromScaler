@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MinXORValue {
     public int findMinXor(int[] A) {
         Arrays.sort(A);
