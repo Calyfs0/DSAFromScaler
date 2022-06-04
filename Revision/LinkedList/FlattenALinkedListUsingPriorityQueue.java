@@ -10,7 +10,7 @@ class LinkedListNode {
     }
 }
 
-public class FlattenALinkedList {
+public class FlattenALinkedListUsingPriorityQueue {
 
     public static void main(String[] args) {
         LinkedListNode root = new LinkedListNode(3);
@@ -51,7 +51,7 @@ public class FlattenALinkedList {
         LinkedListNode root14 = new LinkedListNode(39);
         root13.down = root14;
 
-        FlattenALinkedList flattenALinkedList = new FlattenALinkedList();
+        FlattenALinkedListUsingPriorityQueue flattenALinkedList = new FlattenALinkedListUsingPriorityQueue();
         LinkedListNode result = flattenALinkedList.flatten(root);
         {
             while(result!= null){
