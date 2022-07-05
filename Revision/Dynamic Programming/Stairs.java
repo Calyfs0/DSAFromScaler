@@ -1,29 +1,24 @@
+import java.util.Arrays;
 public class Stairs {
     public static void main(String[] args) {
+        int A = 10;
+        int dp[] = new int[A + 1];
+        Arrays.fill(dp, -1);
+
         Stairs stairs = new Stairs();
-        int A = 4;
-        System.out.println(stairs.climbStairs(A));
+        int ans = stairs.ways(A, dp);
+        System.out.println(ans);
     }
 
-    public int climbStairs(int A) {
-        int[] climbWaysForSteps = new int[A + 1];
-        for (int i = 0; i < climbWaysForSteps.length; i++) {
-            climbWaysForSteps[i] = -1;
-        }
-
-        return noOfWays(A, climbWaysForSteps);
-    }
-
-    public int noOfWays(int A, int[] climbWaysForSteps) {
+    public int ways(int A, int[] dp) {
         if (A == 0)
             return 1;
-        if (A <= 3)
+        if (A < 3)
             return A;
-        if (climbWaysForSteps[A] != -1)
-            return climbWaysForSteps[A];
-        climbWaysForSteps[A] = noOfWays(A - 1, climbWaysForSteps) + noOfWays(A - 2, climbWaysForSteps);
 
-        return climbWaysForSteps[A];
-
+        if (dp[A] != -1)
+            return dp[A];
+        dp[A] = ways(A - 1, dp) + ways(A - 2, dp);
+        return dp[A];
     }
 }
