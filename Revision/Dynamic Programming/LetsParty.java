@@ -2,23 +2,25 @@ import java.util.Arrays;
 
 public class LetsParty {
     public static void main(String[] args) {
-        LetsParty letsParty = new LetsParty();
-        int A = 5;
-        int[] numberOfWaysArray = new int[A + 1];
-        Arrays.setAll(numberOfWaysArray, i -> {
-            return -1;
-        });
+        int A = 4;
         int mod = 10003;
-        System.out.println(letsParty.numberOfWaysToParty(A, numberOfWaysArray, mod));
+        int[] dp = new int[A + 1];
+        Arrays.fill(dp, -1);
+
+        LetsParty letsParty = new LetsParty();
+        int ans = letsParty.noOfWays(A, dp, mod);
+
+        System.out.println(ans);
+
     }
 
-    public int numberOfWaysToParty(int A, int[] numberOfWaysArray, int mod) {
+    public int noOfWays(int A, int[] dp, int mod) {
         if (A < 3)
             return A;
-        if (numberOfWaysArray[A] != -1)
-            return numberOfWaysArray[A];
-        numberOfWaysArray[A] = numberOfWaysToParty(A - 1, numberOfWaysArray, mod)
-                + ((A - 1) * numberOfWaysToParty(A - 2, numberOfWaysArray, mod)) % mod;
-        return numberOfWaysArray[A] % mod;
+
+        if (dp[A] != -1)
+            return dp[A];
+        dp[A] = (noOfWays(A - 1, dp, mod) + (noOfWays(A - 2, dp, mod) * (A - 1)) % mod) % mod;
+        return dp[A];
     }
 }

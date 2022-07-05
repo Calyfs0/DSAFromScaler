@@ -1,8 +1,22 @@
+import java.util.Map;
+import java.util.HashMap;
+
 public class WaysToDecode {
     public static void main(String[] args) {
         WaysToDecode waysToDecode = new WaysToDecode();
         String A = "10";
         System.out.println(waysToDecode.numDecodings(A));
+        Map<Integer, Integer> hm = new HashMap<>();
+        hm.put(1, 1);
+        hm.put(2, 2);
+        hm.put(3, 3);
+        hm.put(4, 4);
+
+        hm.forEach((k, v) -> {
+            System.out.println("Key: " + k);
+            System.out.println("Value: " + v);
+        });
+
     }
 
     public int numDecodings(String A) {
